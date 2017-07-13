@@ -1,0 +1,74 @@
+body{
+	
+	font-family: 'Century Gothic';
+    color: white;
+
+    background: grey; /* For browsers that do not support gradients */    
+    background: -webkit-linear-gradient(left, #42275a, #556270); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, #42275a, #556270); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, #42275a, #556270); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to left, #d7d2cc, #304352); /* Standard syntax (must be last) */
+}
+.body{
+	width: 550px;
+	margin: auto;
+}
+
+form {
+    background-color:rgba(255, 255, 250, 0.7);
+    color: #263238;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button {
+    background: rgba(76, 175, 80, 1);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 1;
+}
+
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+	opacity: 1;
+}
+
+.imgcontainer {
+    padding-top: 20px;
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+img.avatar {
+    width: 150px;
+    border-radius: 50%;
+	background:white;
+	border:1px solid #FFFFFF;
+	filter: blur(0px);
+}
+
+.container {
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+    color: grey;
+}
+h1{
+    color: white;
+    font-weight: normal;    
+	text-align: center;
+}

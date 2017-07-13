@@ -1,0 +1,98 @@
+﻿@charset "utf-8";
+/* CSS Document */
+body{
+	font-family: 'segoe ui';
+	min-width: 900px;
+    min-height:1000px;
+}
+.body{
+	padding-top: 140px;
+}
+.header{
+    width:100%;
+	overflow: hidden;
+	vertical-align: middle;
+	min-width: 900px;
+	margin-bottom: 50px;
+	position: absolute;
+    top: 0;
+	background: #00BCD4;
+	box-shadow: 15px 15px 15px #cbcbcb;
+
+
+    background: red; /* For browsers that do not support gradients */    
+    background: -webkit-linear-gradient(left top, #F0F2F0, #556270); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(bottom right, #F0F2F0, #556270); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(bottom right, #F0F2F0, #556270); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to bottom right, #F0F2F0, #556270); /* Standard syntax (must be last) */
+}
+.logoDiv{
+    width:30%;
+    padding-top:15px;
+    float:left;
+}
+.logo{
+	width:100px;
+	margin-top:-5px;
+	margin-left: 50px;
+	margin-bottom: 10px;
+	background: white;
+	border-radius: 50%;
+}
+.text{
+	color: #556270;
+	text-align: center;
+	width: 80%;
+	margin-top: 30px;
+    text-shadow: 5px 5px 5px #808080;
+}
+.registration dt, .viewdata dt{
+	margin-top: 30px;
+}
+.registration dd, .viewdata dt{
+	margin-top:7px;
+}
+.heading{
+	text-align: center;
+	background: #63B8FF;
+	padding-top: 2px;
+	padding-bottom: 3px;
+	font-weight: 500;
+	color:white;
+	box-shadow: 10px 10px 10px #cbcbcb;
+    margin-top:10px;
+}
+.admininfo a, dl dd a{
+    text-decoration: none;
+    color: #556270;
+    transition-duration: 0.8s;
+}
+.admininfo a:hover, dl dd a:hover {
+    color: #63B8FF;
+    text-shadow: 5px 8px 10px #63B8FF;
+}
+.admininfo, .viewdata{
+	float: left;
+	margin-right: 10px;
+	width: 15%;
+}
+.contents{
+	float:left;
+	width: 64%;
+}
+iframe {
+	margin-top: 10px;
+    height:100%;
+    position:absolute;
+	overflow: hidden;
+    width:64%;
+}
+.profpic{
+	width:100px;
+	border-radius: 50%;
+}
+.admininfo{
+    text-align:center;
+    align-content:center;
+    margin-top:15px;
+}

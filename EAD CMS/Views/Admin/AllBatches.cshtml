@@ -1,0 +1,37 @@
+﻿@model IEnumerable<EAD_CMS.Models.batch>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>All Batches</title>
+    <link href="~/Content/Style.css" rel="stylesheet" />
+
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "AddBatch")
+    </p>
+    <table class="table">
+        <tr>
+            <th><h3>@Html.DisplayNameFor(model => model.name)</h3></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.name)</td>
+                <td>
+                    @*@Html.ActionLink("Delete", "DeleteBatch", new { id=item.name })*@
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

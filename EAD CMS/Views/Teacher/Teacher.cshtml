@@ -1,0 +1,63 @@
+﻿@model EAD_CMS.Models.Teacher
+
+@{
+    var db = new EAD_CMS.Models.CMSEntities();
+    List<EAD_CMS.Models.assigned_course> ass = db.assigned_course.Where(x => x.t_username == Model.username).ToList();
+    
+}
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Campus Management System</title>
+    <link rel="stylesheet" href="~/Content/StyleTeacher.css" />
+</head>
+
+<body>
+    
+    <div class="header">
+        <div class="logoDiv">
+            <a href="@Url.Action("Teacher","Teacher")"><img class="logo" src="~/images/300px-PUCIT_Logo[1].png" /></a>
+        </div>
+
+        <div class="text">
+            <h2>PUNJAB UNIVERSITY COLLEGE OF INFORMATION TECHNOLOGY</h2>
+        </div>
+
+        
+    </div>
+
+
+    <div class="body">
+        <div class="teacherinfo">
+            <img class="profpic" src="~/images/user.png" />
+            <p style="color: hotpink">
+               @Model.name
+            </p>
+            <p><a href="@Url.Action("ChangePassword", "Teacher")" target="contents">Change Password</a></p>
+            <p>@Html.ActionLink("Logout", "Login", "Login")</p>
+        </div>
+
+        <div class="subjects">
+            <div class="heading">Subjects</div>
+            <dl>
+                @foreach (var item in ass)
+                {
+                    <dt>@Html.ActionLink(@item.course.ToUpper() + " " + @item.degree1.title.ToUpper() + " " + @item.batch1.name.ToUpper(), "AddAttendence", "Teacher", new { course = item.course, degree = item.degree1.title, batch = item.batch1.name }, new { target = "contents" })</dt>
+                    <dd></dd>
+                }
+            </dl>
+        </div>
+        <div class="contents">
+            <div class="heading">Contents</div>
+            <iframe id="iframe" name="contents"
+                    height="80"
+                    frameborder="0"></iframe>
+        </div>
+
+    </div>
+
+
+</body>
+</html>
+

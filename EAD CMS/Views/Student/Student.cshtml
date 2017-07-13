@@ -1,0 +1,28 @@
+﻿@model EAD_CMS.Models.student
+@{
+    ViewBag.Title = "Student Profile";
+    Layout = "~/Views/Shared/_StudentLayout.cshtml";
+    
+    EAD_CMS.Models.CMSEntities db = new EAD_CMS.Models.CMSEntities();
+    var rollno = Session["username"].ToString();
+    var student = db.students.Where(x => x.rollno ==rollno).FirstOrDefault();
+    List<EAD_CMS.Models.assigned_course> ass = db.assigned_course.Where(x => x.batch1.name == student.batch1.name && x.degree1.title==student.degree1.title).ToList();
+}
+
+<div class="subjects">
+    <div class="heading">Subjects</div>
+    <dl>
+        @foreach (var item in ass)
+        {
+            <dt>@Html.ActionLink(@item.course.ToUpper() + " "+@item.t_username.ToUpper(), "AllAttendence", "Student", new { ass_id = item.Id, rollno = student.rollno }, new { target = "contents" })</dt>
+            <dd></dd>
+        }
+    </dl>
+</div>
+
+<div class="contents">
+    <div class="heading">Contents</div>
+    <iframe id="iframe" name="contents"
+            height="80"
+            frameborder="0"></iframe>
+</div>

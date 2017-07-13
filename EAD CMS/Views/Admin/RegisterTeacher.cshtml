@@ -1,0 +1,134 @@
+﻿
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>CSS Registration Form</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="~/Content/StyleRegTeacher.css" />
+    <script>
+        function validate() {
+            var pass1 = document.getElementsByName("pass1")[0].value;
+            var pass2 = document.getElementsByName("pass2")[0].value;
+            if (pass1 == pass2) {
+                return true;
+            }
+            else {
+                document.getElementById("error").innerHTML = "Password in both fields do not match";
+                document.getElementById("error").style.color = "red";
+                return false;
+            }
+        };
+    </script>
+</head>
+<body>
+    <form action="TeacherRegController" class="register" onsubmit="return validate();" method="post">
+        <h1>Teacher Registration</h1>
+        <fieldset class="row1">
+            <legend>
+                Account Details
+            </legend>
+            <p>
+                <label>
+                    Username *
+                </label>
+                <input type="text" name="username" required />
+                <label>
+                    Email *
+                </label>
+                <input type="email" name="email" required />
+            </p>
+            <p>
+                <label>
+                    Password*
+                </label>
+                <input type="text" name="pass1" required />
+                <label>
+                    Repeat Password*
+                </label>
+                <input type="text" name="pass2" required />
+                <label class="obinfo">
+                    * obligatory fields
+                </label>
+            </p>
+            <p id="error">
+            </p>
+        </fieldset>
+        <fieldset class="row2">
+            <legend>
+                Personal Details
+            </legend>
+            <p>
+                <label>
+                    Name *
+                </label>
+                <input type="text" class="long" name="name" required />
+            </p>
+            <p>
+                <label>
+                    Phone *
+                </label>
+                <input type="number" maxlength="11" name="phno" required />
+            </p>
+            <p>
+                <label>
+                    Address
+                </label>
+                <input type="text" class="long" name="address" required />
+            </p>
+            <p>
+                <label>
+                    City *
+                </label>
+                <input type="text" class="long" name="city" required />
+            </p>
+            <p>
+                <label>
+                    Country *
+                </label>
+                <select>
+                    <option value="0" name="pakistan">
+                        Pakistan
+                    </option>
+                    <option value="1" name="united states">
+                        United States
+                    </option>
+                </select>
+            </p>
+
+        </fieldset>
+        <fieldset class="row3">
+            <legend>
+                Further Information
+            </legend>
+            <p>
+                <label>Gender</label>
+                <input type="radio" value="male" checked="checked" name="gender" />
+                <label class="gender">Male</label>
+                <input type="radio" value="female" name="gender" />
+                <label class="gender">Female</label>
+            </p>
+            <p>
+                <label>
+                    Nationality *
+                </label>
+                <select>
+                    <option value="0" name="nationality">
+                        Pakistan
+                    </option>
+                    <option value="1" name="nationality">
+                        United States
+                    </option>
+                </select>
+            </p>
+        </fieldset>
+        <div>
+            <button class="button">Register &raquo;</button>
+        </div>
+    </form>
+</body>
+</html>
+
+
+
+
+

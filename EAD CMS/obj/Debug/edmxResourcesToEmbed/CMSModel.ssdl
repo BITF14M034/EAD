@@ -1,0 +1,329 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="assigned_course">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="course_id" Type="int" Nullable="false" />
+    <Property Name="batch" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="degree" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="t_username" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="assignment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="marks" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="rollno" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ass_course_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="batch">
+    <Key>
+      <PropertyRef Name="name" />
+    </Key>
+    <Property Name="name" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="course">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="degree">
+    <Key>
+      <PropertyRef Name="title" />
+    </Key>
+    <Property Name="title" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="final">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="marks" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="rollno" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ass_course_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="login">
+    <Key>
+      <PropertyRef Name="username" />
+    </Key>
+    <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="type" Type="varchar" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mid">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="marks" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="rollno" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ass_course_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="quiz">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="marks" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="rollno" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ass_course_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="student">
+    <Key>
+      <PropertyRef Name="rollno" />
+    </Key>
+    <Property Name="rollno" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="degree" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="batch" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Teacher">
+    <Key>
+      <PropertyRef Name="username" />
+    </Key>
+    <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__assigned___batch__5070F446">
+    <End Role="batch" Type="Self.batch" Multiplicity="1" />
+    <End Role="assigned_course" Type="Self.assigned_course" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="batch">
+        <PropertyRef Name="name" />
+      </Principal>
+      <Dependent Role="assigned_course">
+        <PropertyRef Name="batch" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__assigned___cours__4F7CD00D">
+    <End Role="course" Type="Self.course" Multiplicity="1" />
+    <End Role="assigned_course" Type="Self.assigned_course" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="course">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="assigned_course">
+        <PropertyRef Name="course_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__assigned___degre__5165187F">
+    <End Role="degree" Type="Self.degree" Multiplicity="1" />
+    <End Role="assigned_course" Type="Self.assigned_course" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="degree">
+        <PropertyRef Name="title" />
+      </Principal>
+      <Dependent Role="assigned_course">
+        <PropertyRef Name="degree" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__assigned___t_use__52593CB8">
+    <End Role="Teacher" Type="Self.Teacher" Multiplicity="1" />
+    <End Role="assigned_course" Type="Self.assigned_course" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teacher">
+        <PropertyRef Name="username" />
+      </Principal>
+      <Dependent Role="assigned_course">
+        <PropertyRef Name="t_username" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__assignmen__ass_c__4E88ABD4">
+    <End Role="assigned_course" Type="Self.assigned_course" Multiplicity="1" />
+    <End Role="assignment" Type="Self.assignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assigned_course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="assignment">
+        <PropertyRef Name="ass_course_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__assignmen__rolln__4D94879B">
+    <End Role="student" Type="Self.student" Multiplicity="1" />
+    <End Role="assignment" Type="Self.assignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="student">
+        <PropertyRef Name="rollno" />
+      </Principal>
+      <Dependent Role="assignment">
+        <PropertyRef Name="rollno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__final__ass_cours__4CA06362">
+    <End Role="assigned_course" Type="Self.assigned_course" Multiplicity="1" />
+    <End Role="final" Type="Self.final" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assigned_course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="final">
+        <PropertyRef Name="ass_course_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__final__rollno__4BAC3F29">
+    <End Role="student" Type="Self.student" Multiplicity="1" />
+    <End Role="final" Type="Self.final" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="student">
+        <PropertyRef Name="rollno" />
+      </Principal>
+      <Dependent Role="final">
+        <PropertyRef Name="rollno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__mid__ass_course___4AB81AF0">
+    <End Role="assigned_course" Type="Self.assigned_course" Multiplicity="1" />
+    <End Role="mid" Type="Self.mid" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assigned_course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="mid">
+        <PropertyRef Name="ass_course_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__mid__rollno__49C3F6B7">
+    <End Role="student" Type="Self.student" Multiplicity="1" />
+    <End Role="mid" Type="Self.mid" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="student">
+        <PropertyRef Name="rollno" />
+      </Principal>
+      <Dependent Role="mid">
+        <PropertyRef Name="rollno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__quiz__ass_course__48CFD27E">
+    <End Role="assigned_course" Type="Self.assigned_course" Multiplicity="1" />
+    <End Role="quiz" Type="Self.quiz" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assigned_course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="quiz">
+        <PropertyRef Name="ass_course_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__quiz__rollno__47DBAE45">
+    <End Role="student" Type="Self.student" Multiplicity="1" />
+    <End Role="quiz" Type="Self.quiz" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="student">
+        <PropertyRef Name="rollno" />
+      </Principal>
+      <Dependent Role="quiz">
+        <PropertyRef Name="rollno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__student__batch__35BCFE0A">
+    <End Role="batch" Type="Self.batch" Multiplicity="1" />
+    <End Role="student" Type="Self.student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="batch">
+        <PropertyRef Name="name" />
+      </Principal>
+      <Dependent Role="student">
+        <PropertyRef Name="batch" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__student__degree__34C8D9D1">
+    <End Role="degree" Type="Self.degree" Multiplicity="1" />
+    <End Role="student" Type="Self.student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="degree">
+        <PropertyRef Name="title" />
+      </Principal>
+      <Dependent Role="student">
+        <PropertyRef Name="degree" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CMSModelStoreContainer">
+    <EntitySet Name="assigned_course" EntityType="Self.assigned_course" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="assignment" EntityType="Self.assignment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="batch" EntityType="Self.batch" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="course" EntityType="Self.course" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="degree" EntityType="Self.degree" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="final" EntityType="Self.final" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="login" EntityType="Self.login" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mid" EntityType="Self.mid" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="quiz" EntityType="Self.quiz" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="student" EntityType="Self.student" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Teacher" EntityType="Self.Teacher" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__assigned___batch__5070F446" Association="Self.FK__assigned___batch__5070F446">
+      <End Role="batch" EntitySet="batch" />
+      <End Role="assigned_course" EntitySet="assigned_course" />
+    </AssociationSet>
+    <AssociationSet Name="FK__assigned___cours__4F7CD00D" Association="Self.FK__assigned___cours__4F7CD00D">
+      <End Role="course" EntitySet="course" />
+      <End Role="assigned_course" EntitySet="assigned_course" />
+    </AssociationSet>
+    <AssociationSet Name="FK__assigned___degre__5165187F" Association="Self.FK__assigned___degre__5165187F">
+      <End Role="degree" EntitySet="degree" />
+      <End Role="assigned_course" EntitySet="assigned_course" />
+    </AssociationSet>
+    <AssociationSet Name="FK__assigned___t_use__52593CB8" Association="Self.FK__assigned___t_use__52593CB8">
+      <End Role="Teacher" EntitySet="Teacher" />
+      <End Role="assigned_course" EntitySet="assigned_course" />
+    </AssociationSet>
+    <AssociationSet Name="FK__assignmen__ass_c__4E88ABD4" Association="Self.FK__assignmen__ass_c__4E88ABD4">
+      <End Role="assigned_course" EntitySet="assigned_course" />
+      <End Role="assignment" EntitySet="assignment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__assignmen__rolln__4D94879B" Association="Self.FK__assignmen__rolln__4D94879B">
+      <End Role="student" EntitySet="student" />
+      <End Role="assignment" EntitySet="assignment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__final__ass_cours__4CA06362" Association="Self.FK__final__ass_cours__4CA06362">
+      <End Role="assigned_course" EntitySet="assigned_course" />
+      <End Role="final" EntitySet="final" />
+    </AssociationSet>
+    <AssociationSet Name="FK__final__rollno__4BAC3F29" Association="Self.FK__final__rollno__4BAC3F29">
+      <End Role="student" EntitySet="student" />
+      <End Role="final" EntitySet="final" />
+    </AssociationSet>
+    <AssociationSet Name="FK__mid__ass_course___4AB81AF0" Association="Self.FK__mid__ass_course___4AB81AF0">
+      <End Role="assigned_course" EntitySet="assigned_course" />
+      <End Role="mid" EntitySet="mid" />
+    </AssociationSet>
+    <AssociationSet Name="FK__mid__rollno__49C3F6B7" Association="Self.FK__mid__rollno__49C3F6B7">
+      <End Role="student" EntitySet="student" />
+      <End Role="mid" EntitySet="mid" />
+    </AssociationSet>
+    <AssociationSet Name="FK__quiz__ass_course__48CFD27E" Association="Self.FK__quiz__ass_course__48CFD27E">
+      <End Role="assigned_course" EntitySet="assigned_course" />
+      <End Role="quiz" EntitySet="quiz" />
+    </AssociationSet>
+    <AssociationSet Name="FK__quiz__rollno__47DBAE45" Association="Self.FK__quiz__rollno__47DBAE45">
+      <End Role="student" EntitySet="student" />
+      <End Role="quiz" EntitySet="quiz" />
+    </AssociationSet>
+    <AssociationSet Name="FK__student__batch__35BCFE0A" Association="Self.FK__student__batch__35BCFE0A">
+      <End Role="batch" EntitySet="batch" />
+      <End Role="student" EntitySet="student" />
+    </AssociationSet>
+    <AssociationSet Name="FK__student__degree__34C8D9D1" Association="Self.FK__student__degree__34C8D9D1">
+      <End Role="degree" EntitySet="degree" />
+      <End Role="student" EntitySet="student" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

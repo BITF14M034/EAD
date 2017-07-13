@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CMSModelStoreContainer" CdmEntityContainer="CMSEntities">
+    <EntitySetMapping Name="assigned_course">
+      <EntityTypeMapping TypeName="CMSModel.assigned_course">
+        <MappingFragment StoreEntitySet="assigned_course">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="course_id" ColumnName="course_id" />
+          <ScalarProperty Name="batch" ColumnName="batch" />
+          <ScalarProperty Name="degree" ColumnName="degree" />
+          <ScalarProperty Name="t_username" ColumnName="t_username" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="assignments">
+      <EntityTypeMapping TypeName="CMSModel.assignment">
+        <MappingFragment StoreEntitySet="assignment">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="marks" ColumnName="marks" />
+          <ScalarProperty Name="rollno" ColumnName="rollno" />
+          <ScalarProperty Name="ass_course_id" ColumnName="ass_course_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="batches">
+      <EntityTypeMapping TypeName="CMSModel.batch">
+        <MappingFragment StoreEntitySet="batch">
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="courses">
+      <EntityTypeMapping TypeName="CMSModel.course">
+        <MappingFragment StoreEntitySet="course">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="degrees">
+      <EntityTypeMapping TypeName="CMSModel.degree">
+        <MappingFragment StoreEntitySet="degree">
+          <ScalarProperty Name="title" ColumnName="title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="finals">
+      <EntityTypeMapping TypeName="CMSModel.final">
+        <MappingFragment StoreEntitySet="final">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="marks" ColumnName="marks" />
+          <ScalarProperty Name="rollno" ColumnName="rollno" />
+          <ScalarProperty Name="ass_course_id" ColumnName="ass_course_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="logins">
+      <EntityTypeMapping TypeName="CMSModel.login">
+        <MappingFragment StoreEntitySet="login">
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mids">
+      <EntityTypeMapping TypeName="CMSModel.mid">
+        <MappingFragment StoreEntitySet="mid">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="marks" ColumnName="marks" />
+          <ScalarProperty Name="rollno" ColumnName="rollno" />
+          <ScalarProperty Name="ass_course_id" ColumnName="ass_course_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="quizs">
+      <EntityTypeMapping TypeName="CMSModel.quiz">
+        <MappingFragment StoreEntitySet="quiz">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="marks" ColumnName="marks" />
+          <ScalarProperty Name="rollno" ColumnName="rollno" />
+          <ScalarProperty Name="ass_course_id" ColumnName="ass_course_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="students">
+      <EntityTypeMapping TypeName="CMSModel.student">
+        <MappingFragment StoreEntitySet="student">
+          <ScalarProperty Name="rollno" ColumnName="rollno" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="degree" ColumnName="degree" />
+          <ScalarProperty Name="batch" ColumnName="batch" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Teachers">
+      <EntityTypeMapping TypeName="CMSModel.Teacher">
+        <MappingFragment StoreEntitySet="Teacher">
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

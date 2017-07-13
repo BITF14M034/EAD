@@ -1,0 +1,62 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Admin</title>
+    <link href="~/Content/StyleAdmin.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="body">
+        <div class="header">
+            <div class="logoDiv">
+                <a href="@Url.Action("Admin", "Admin")"><img class="logo" src="~/images/300px-PUCIT_Logo[1].png" /></a>
+            </div>
+            <div class="text">
+                <h2>PUNJAB UNIVERSITY COLLEGE OF INFORMATION TECHNOLOGY</h2>
+            </div>
+        </div>
+
+        <div class="admininfo">
+            <img class="profpic" src="~/images/user.png" />
+            <p>
+                ADMIN
+            </p>
+            <p><a href="@Url.Action("ChangePassword", "Admin")" target="contents">Change Password</a></p>
+            <p>@Html.ActionLink("Logout", "Login", "Login")</p>
+        </div>
+        <div class="viewdata">
+            <div class="heading">View Data</div>
+            <dl>
+                <dt></dt>
+                <dd><a href="@Url.Action("AllStudents", "Admin")" target="contents">Students</a></dd>
+                <dt></dt>
+                <dd><a href="@Url.Action("AllTeachers", "Admin")" target="contents">Teachers</a></dd>
+                <dt></dt>
+                <dd><a href="@Url.Action("AllBatches", "Admin")" target="contents">Batches</a></dd>
+                <dt></dt>
+                <dd><a href="@Url.Action("AllDegrees", "Admin")" target="contents">Degrees</a></dd>
+                <dt></dt>
+                <dd><a href="@Url.Action("AllCourses", "Admin")" target="contents">Courses</a></dd>
+                <dt></dt>
+                <dd><a href="@Url.Action("AssignCourse", "Admin")" target="contents">Assign Course</a></dd>
+                <dt></dt>
+                <dd><a href="@Url.Action("AssignedCourses", "Admin")" target="contents">Assigned Courses</a></dd>
+                <dt></dt>
+            </dl>
+        </div>
+
+        <div class="contents">
+            <div class="heading">Contents</div>
+            <iframe id="iframe" name="contents"
+                    src="~/Admin/AllStudents"
+                    height="80"
+                    frameborder="0"></iframe>
+        </div>
+
+    </div>
+    <script>
+
+    </script>
+</body>
+</html>

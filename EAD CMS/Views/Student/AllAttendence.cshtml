@@ -1,0 +1,42 @@
+﻿@model IEnumerable<EAD_CMS.Models.attendence>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>All Attendence</title>
+    <link href="~/Content/Style.css" rel="stylesheet" />
+</head>
+<body>
+    <table class="table">
+        <tr>
+            <th>
+                <h3>@Html.DisplayNameFor(model => model.date)</h3>
+            </th>
+            <th>
+                <h3>
+                    @Html.DisplayNameFor(model => model.status)
+                </h3>
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.status)
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

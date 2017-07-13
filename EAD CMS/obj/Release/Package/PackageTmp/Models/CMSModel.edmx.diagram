@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="631d123dd0a84d95bf8998819f083de3" Name="Diagram1">
+        <EntityTypeShape EntityType="CMSModel.assigned_course" Width="1.5" PointX="0.5" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSModel.assignment" Width="1.5" PointX="5.875" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSModel.batch" Width="1.5" PointX="3.5" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSModel.course" Width="1.5" PointX="6.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSModel.degree" Width="1.5" PointX="8.875" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSModel.final" Width="1.5" PointX="2.375" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSModel.login" Width="1.5" PointX="10.875" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSModel.mid" Width="1.5" PointX="4.125" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSModel.quiz" Width="1.5" PointX="7.625" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSModel.student" Width="1.5" PointX="10.125" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSModel.Teacher" Width="1.5" PointX="0.5" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="CMSModel.FK__student__batch__35BCFE0A" />
+        <AssociationConnector Association="CMSModel.FK__student__degree__34C8D9D1" />
+        <AssociationConnector Association="CMSModel.FK__assigned___batch__5070F446" />
+        <AssociationConnector Association="CMSModel.FK__assigned___cours__4F7CD00D" />
+        <AssociationConnector Association="CMSModel.FK__assigned___degre__5165187F" />
+        <AssociationConnector Association="CMSModel.FK__assigned___t_use__52593CB8" />
+        <AssociationConnector Association="CMSModel.FK__assignmen__ass_c__4E88ABD4" />
+        <AssociationConnector Association="CMSModel.FK__final__ass_cours__4CA06362" />
+        <AssociationConnector Association="CMSModel.FK__mid__ass_course___4AB81AF0" />
+        <AssociationConnector Association="CMSModel.FK__quiz__ass_course__48CFD27E" />
+        <AssociationConnector Association="CMSModel.FK__assignmen__rolln__4D94879B" />
+        <AssociationConnector Association="CMSModel.FK__final__rollno__4BAC3F29" />
+        <AssociationConnector Association="CMSModel.FK__mid__rollno__49C3F6B7" />
+        <AssociationConnector Association="CMSModel.FK__quiz__rollno__47DBAE45" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

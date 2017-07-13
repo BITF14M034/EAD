@@ -1,0 +1,105 @@
+﻿@model IList<EAD_CMS.Models.attendence>
+
+@{
+    var da = Model[0].date;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add Attendence</title>
+    <link href="~/Content/Style.css" rel="stylesheet" />
+    <script src='@Url.Content("~/Scripts/jquery-1.10.2.js")' type='text/javascript'></script>
+    <script src='@Url.Content("~/Scripts/jquery.validate.js")' type='text/javascript'>         </script>
+    <script src='@Url.Content("~/Scripts/jquery.validate.unobtrusive.js")' type='text/javascript'></script>
+    <script src="~/Scripts/jquery-ui.min.js"></script>
+    <link href="~/Content/jquery-ui.css" rel="stylesheet" />
+    <style>
+        input[type="text"]:not(:first-child), .hidden{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <p class="left" style="width:20%">
+            <label>Select Date</label>
+            <h3><input type="text" id="date" style="border: none; text-align:center; color:white; width: 100px; background: #63B8FF; font-family: 'Century Gothic'; " readonly="readonly" /></h3>
+        </p>
+        <p class="right">
+            <a href="#a" onclick="checkAll();">Check All</a>
+        </p>
+        <p class="right">
+            <a href="#a" onclick="uncheckAll();">Uncheck All</a>
+        </p>
+        <label id="count" class="hidden">@Model.Count</label>
+        @Html.ValidationSummary(true)
+        <table class="table">
+            <tr>
+                <th>
+                    <h3>Student's Name</h3>
+                </th>
+                <th>
+                    <h3>Student's ID</h3>
+                </th>
+                <th>
+                    <h3>Status</h3>
+                </th>
+                <th></th>
+            </tr>
+
+            @for (var i = 0; i < Model.Count(); i++ )
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => Model[i].student.name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => Model[i].rollno)
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => Model[i].status)
+                    </td>
+                    @Html.TextBoxFor(model => Model[i].date, new { @readonly = "readonly" })
+                    @Html.HiddenFor(model => Model[i].ass_course_id)
+                    @Html.HiddenFor(model => Model[i].student.name)
+                    @Html.HiddenFor(model => Model[i].rollno)
+                </tr>
+            }
+
+        </table>
+        <input type="submit" value="Submit"  style="width:200px; margin:20px;" />
+    }
+    <script>
+        function checkAll() {
+            var cb = document.getElementsByClassName("check-box");
+            for (var i = 0; i < cb.length; i++) {
+                cb[i].checked = true;
+            }
+        };
+        function uncheckAll() {
+            var cb = document.getElementsByClassName("check-box");
+            for (var i = 0; i < cb.length; i++) {
+                cb[i].checked = false;
+            }
+        };
+        $(document).ready(function datePicker() {
+            $("#date").datepicker({ dateFormat: 'mm/dd/yy' }).on("input change", function (e) {
+                var date = document.getElementsByName("[0].date");
+                var str = document.getElementById("date").value;
+                var count = document.getElementById("count").textContent;
+                
+                for (var i = 0; i < count ; i++) {
+                    document.getElementsByName('[' + i + '].date')[0].value=str;
+                }
+            })
+        });
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<EAD_CMS.Models.assigned_course>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Assigned Courses</title>
+    <link href="~/Content/Style.css" rel="stylesheet" />
+
+</head>
+<body>
+    <table class="table">
+        <tr>
+            <th>
+                <h3>@Html.DisplayNameFor(model => model.course)</h3>
+            </th>
+            <th>
+                <h3>@Html.DisplayNameFor(model => model.batch1.name)</h3>
+            <th>
+                <h3>@Html.DisplayNameFor(model => model.degree1.title)</h3>
+            </th>
+            <th>
+                <h3>@Html.DisplayNameFor(model => model.Teacher.name)</h3>
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.course)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.batch1.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.degree1.title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Teacher.name)
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

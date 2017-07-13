@@ -1,0 +1,88 @@
+﻿@model IEnumerable<EAD_CMS.Models.Teacher>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AllTeachers</title>
+    <link href="~/Content/Style.css" rel="stylesheet" />
+    <style>
+        td:nth-child(2){
+            text-transform:lowercase;
+        }
+    </style>
+</head>
+<body>
+    @using (Html.BeginForm("AllTeachers", "Admin", FormMethod.Post))
+    {
+
+        <p class="left">
+            @Html.ActionLink("Create New", "AddTeacher")
+        </p>
+        <p class="left">
+            <a href="#a" onclick="append()">Search</a>
+        </p>
+        <p class="left">
+            <a href="@Url.Action("AllTeachers", "Admin")">Refresh</a>
+        </p>
+        <p class="left" id="dispSearch">
+
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    <h3>@Html.DisplayNameFor(model => model.name)</h3>
+                </th>
+                <th>
+                    <h3>@Html.DisplayNameFor(model => model.username)</h3>
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.username)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "EditTeacher", new { id = item.username }) |
+                        @Html.ActionLink("Delete", "DeleteTeacher", new { id = item.username })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    }
+    <script>
+        var needAppend = true;
+        function append() {
+            if (needAppend) {
+                var input = document.createElement("input");
+                input.type = "text";
+                input.name = "key";
+                input.placeholder = "Enter Name to Search";
+
+                document.getElementById("dispSearch").appendChild(input);
+                input = document.createElement("button");
+                input.innerHTML = "Search";
+                input.type = "submit";
+
+                document.getElementById("dispSearch").appendChild(input);
+
+                needAppend = false;
+
+            }
+
+        };
+    </script>
+
+</body>
+</html>

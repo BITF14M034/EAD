@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+
+    @Styles.Render("~/Content/StyleStudent.css")
+
+    <style>
+        .navbar a:hover{
+            background: #525252;
+            color: white;
+            border-radius: 3px;
+            box-shadow: 2px 15px 5px gray;
+        }
+        .studentinfo a:hover{
+            color:hotpink;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="body">
+
+        <div class="header">
+            <div class="logoDiv">
+                <a href="@Url.Action("Student","Student")"><img class="logo" src="~/images/300px-PUCIT_Logo[1].png" /></a>
+            </div>
+
+            <div class="text">
+                <h2>PUNJAB UNIVERSITY COLLEGE OF INFORMATION TECHNOLOGY</h2>
+            </div>
+
+            <div class="navBar">
+                <ul>
+                    <li><a href="@Url.Action("Student","Student")">HOME</a></li>
+                    <li><a href=#>NEWS & UPADATES</a></li>
+                    <li><a href=#>PERSONAL INFO</a></li>
+                    <li><a href="@Url.Action("About","Student")">ABOUT US</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="studentinfo">
+            <img class="profpic" src="~/images/user.png" />
+            <p>
+                @Model.name
+            </p>
+            <p><a href="#">Change Password</a></p>
+            @*<p><a href="@Url.Action("Login","Login")">Logout</a></p>*@
+            <p>@Html.ActionLink("Logout", "Login", "Login")</p>
+        </div>
+
+        @RenderBody()
+    </div>
+
+    @*@Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)*@
+</body>
+</html>

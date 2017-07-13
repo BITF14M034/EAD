@@ -1,0 +1,36 @@
+﻿@model IEnumerable<EAD_CMS.Models.degree>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>All Degrees</title>
+    <link href="~/Content/Style.css" rel="stylesheet" />
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "AddDegree")
+    </p>
+    <table class="table">
+        <tr>
+            <th><h3>@Html.DisplayNameFor(model => model.title)</h3></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.title)</td>
+                <td>
+                    @*@Html.ActionLink("Delete", "DeleteDegree", new { id=item.title })*@
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>
